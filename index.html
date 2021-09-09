@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <SECtion class="container mx-auto m-8">
+        <div class="grid grid-flow-col grid-cols-2 gap-4">
+            <div class=" p-8 grid justify-items-end">
+                <img class='w-80' src="mac.png" alt="mac">
+            </div>
+            <!-- ... -->
+            <div>
+                <h1 class='text-5xl pt-8 font-bold'>Customise your mac book with apple new chip m1</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur libero tempora ratione quaerat
+                    nulla laborum perferendis, sequi voluptates odio nemo blanditiis quasi? Magnam vitae amet ea.
+                    Expedita repellendus modi totam inventore laboriosam amet? Libero temporibus ab earum? Perspiciatis
+                    fugit est blanditiis sequi autem deleniti ex magnam voluptatem hic dignissimos. Consectetur.
+                </p>
+                <h1 class='text-3xl font-bold mb-2'>memory</h1>
+                <div class="mb-8">
+                    <span onclick="memory('8')" class='border-2 border-black p-1'>8gb ram</span>
+                    <span onclick="memory('16')" class='border-2 border-black p-1'>16 gb ram</span>
+                </div>
+
+
+                <h1 class='text-3xl font-bold mb-2'>storage</h1>
+                <div class="mb-8">
+
+
+
+                    <span onclick="memory1('225')" class='border-2 border-black p-1'>225gb ram</span>
+                    <span onclick="memory1('500')" class='border-2 border-black p-1'>500gb ram</span>
+                    <span onclick="memory1('1000')" class='border-2 border-black p-1'>1000gb ram</span>
+
+                </div>
+
+                <h1 class='text-3xl font-bold mb-2'>delivary</h1>
+                <div class='mb-16'>
+
+                    <span onclick="delivery('0')" class='border-2 border-black p-1'>free delivery</span>
+                    <span onclick="delivery('1')" class='border-2 border-black p-1'>vip delevary</span>
+
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 font-bold">
+                    <p>
+                        Best Price
+                    </p>
+                    <p>$1299</p>
+                    <p>Extra ram cost</p>
+                    <p>$ <span id="ram">0</span></p>
+                    <p>Extra memory cost</p>
+                    <p>$ <span id="rom">0</span></p>
+                    <p>Delevary Charge</p>
+                    <p>$ <span id="dc">0</span></p>
+                    <p>Total price</p>
+                    <p>$ <span id="tp">1299</span></p>
+
+
+                </div>
+
+                <section class="font-bold mt-10">
+
+                    <h2> add promo code</h2>
+                    <input id='promocode' class="border-2 border-black" type="text">
+                    <button onclick="pc()" class="bg-red-500 pl-2 pr-2 p-1 rounded-lg">apply</button>
+                </section>
+
+
+            </div>
+        </div>
+        <hr class="mb-2 mt-2">
+        <h1 id='final' class="text-6xl font-bold text-center"> 1299</h1>
+
+    </SECtion>
+
+    <!-- java script -->
+
+    <script>
+
+        function memory(opol) {
+
+
+            if (opol == '16') {
+                let find = document.getElementById('ram');
+                // console.log(find);
+                find.innerText = '100';
+                let a = document.getElementById('rom').innerText;
+                let b = document.getElementById('dc').innerText;
+
+
+                a = (parseFloat(a) + parseFloat(b) + 100 + 1299);
+
+                let c = document.getElementById('tp');
+                c.innerText = a;
+                const final = document.getElementById('final');
+                final.innerText = a;
+
+
+
+
+            } else {
+                let find = document.getElementById('ram');
+                find.innerText = '0';
+                let a = document.getElementById('rom').innerText;
+                let b = document.getElementById('dc').innerText;
+
+
+                a = (parseFloat(a) + parseFloat(b) + 1299);
+
+                let c = document.getElementById('tp');
+                c.innerText = a;
+                const final = document.getElementById('final');
+                final.innerText = a;
+
+
+
+
+            }
+
+        }
+
+
+        function memory1(opol) {
+
+            //  console.log(opol);
+            if (opol == '225') {
+                let a = document.getElementById('rom');
+                a.innerText = 0;
+
+            }
+
+            else if (opol == '500') {
+                let a = document.getElementById('rom');
+                a.innerText = 50;
+            } else {
+                let a = document.getElementById('rom');
+                a.innerText = 75;
+
+            }
+
+            let a = document.getElementById('ram');
+
+            let b = document.getElementById('rom');
+            let c = document.getElementById('dc');
+
+
+
+
+            a = (parseFloat(a.innerText) + parseFloat(b.innerText) + parseFloat(c.innerText) + 1299);
+
+            let d = document.getElementById('tp');
+            d.innerText = a;
+            const final = document.getElementById('final');
+            final.innerText = a;
+
+
+
+        }
+
+        function delivery(opol) {
+
+            if (opol == '1') {
+                let a = document.getElementById('dc');
+                a.innerText = 20;
+            } else {
+
+                let a = document.getElementById('dc');
+                a.innerText = 0;
+            }
+            let a = document.getElementById('ram');
+
+            let b = document.getElementById('rom');
+            let c = document.getElementById('dc');
+
+
+
+
+            a = (parseFloat(a.innerText) + parseFloat(b.innerText) + parseFloat(c.innerText) + 1299);
+
+            let d = document.getElementById('tp');
+            d.innerText = a;
+            const final = document.getElementById('final');
+
+            final.innerText = a;
+
+
+
+        }
+
+        function pc() {
+            let a = document.getElementById('promocode');
+            if (a.value == 'tamim') {
+                const final = document.getElementById('final');
+                let b = parseFloat(final.innerText) - 20;
+                final.innerText = b;
+                a.value = null;
+
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
